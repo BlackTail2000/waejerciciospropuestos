@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Primer Ejercicio</title>
+    <link th:href="@{/css/bootstrap/bootstrap.css}" rel="stylesheet">
+    <script th:src="@{/js/bootstrap/bootstrap.bundle.js}" type="text/javascript"></script>
+</head>
+<body>
+    <div class="py-5">
+        <div class="card border-primary mb-3 mx-auto" style="max-width: 30rem;">
+            <div class="card-header text-center text-bg-primary">
+                <h3>Áreas del Cilindro</h3>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Ingresar valores:</h5>
+                <form th:action="@{/Ejercicios/Uno}" method="post">
+                    <div class="row">
+                        <div class="col">
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon1">Radio</span>
+                                <input type="number" class="form-control" placeholder="0.0"
+                                       aria-label="Radio" aria-describedby="basic-addon1"
+                                       name="r" step="0.1" required>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon2">Altura</span>
+                                <input type="number" class="form-control" placeholder="0.0"
+                                       aria-label="Altura" aria-describedby="basic-addon2"
+                                       name="h" step="0.1" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary">Calcular</button>
+                    </div>
+                </form>
+            </div>
+            <div th:if="${areabase}" class="text-bg-primary">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col">
+                            <p class="font-monospace">Área Base: <span th:text="${#numbers.formatDecimal(areabase, 1, 2, 'POINT')}"></span></p>
+                        </div>
+                        <div class="col">
+                            <p class="fw-lighter text-end">π * r * 2</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col">
+                            <p class="font-monospace">Área Lateral: <span th:text="${#numbers.formatDecimal(arealateral, 1, 2, 'POINT')}"></span></p>
+                        </div>
+                        <div class="col">
+                            <p class="fw-lighter text-end">2π * r * h</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col">
+                            <p class="font-monospace">Área Total: <span th:text="${#numbers.formatDecimal(areatotal, 1, 2, 'POINT')}"></span></p>
+                        </div>
+                        <div class="col">
+                            <p class="fw-lighter text-end">2π * r * (r + h)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
