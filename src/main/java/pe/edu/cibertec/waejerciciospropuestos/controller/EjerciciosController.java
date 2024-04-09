@@ -61,4 +61,26 @@ public class EjerciciosController {
         model.addAttribute("anio", a);
         return "segundoejercicio";
     }
+
+    @GetMapping("/Tres")
+    public String ejercicioTres(){
+        return "tercerejercicio";
+    }
+
+    @PostMapping("/Tres")
+    public String ejercicioTres(@RequestParam("p") double p,
+                                @RequestParam("c") int c,
+                                Model model){
+        String regalo;
+        if(c <= 25)
+            regalo = "Un lapicero";
+        else if(c <= 50)
+            regalo = "Un cuaderno";
+        else
+            regalo = "Una agenda";
+
+        model.addAttribute("iap", p * c);
+        model.addAttribute("regalo", regalo);
+        return "tercerejercicio";
+    }
 }
