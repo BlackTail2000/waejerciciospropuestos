@@ -22,7 +22,6 @@ public class EjerciciosController {
         model.addAttribute("areabase", 3.14 * r * 2);
         model.addAttribute("arealateral", 2 * 3.14 * h);
         model.addAttribute("areatotal", 2 * 3.14 * (r + h));
-        System.out.print("Estas aquí");
         return "primerejercicio";
     }
 
